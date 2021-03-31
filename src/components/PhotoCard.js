@@ -12,7 +12,7 @@ const PhotoCard = (props) => {
         <h3>{date}</h3>
         <h4>By {copyright}</h4>
         <div id="img_wrapper">
-            <img src={url} alt="Image goes here" />
+            <img src={url} alt="useful alt text goes here" />
             <p>{explanation}</p>
         </div>
     </div>
