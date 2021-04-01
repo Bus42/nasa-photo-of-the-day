@@ -3,20 +3,27 @@ import axios from 'axios'
 import "./App.css";
 import PhotoCard from "./components/PhotoCard";
 import Loader from './components/Loader'
-// import dummyData from './components/dummyData';
+import dummyData from './components/dummyData';
 import { reqURL } from './constants';
+const live = false;
 
 function App() {
   const [photos, setPhotos] = useState([]);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    axios.get(reqURL)
+    if(live){
+      axios.get(reqURL)
       .then(res => {
         console.log(res.data)
         setPhotos(res.data)
         setLoaded(true)
       })
       .catch(err => console.error(err))
+    } else {
+        setPhotos(dummyData)
+        //show off my spinning spaceguy
+        setTimeout(()=>setLoaded(true), 2000)
+      }
   }, [])
   return (
     <div className="App">
