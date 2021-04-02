@@ -35,6 +35,7 @@ const PhotoCardImageWrapper = styled.div`
 `;
 const PhotoCardImage = styled.img`
     width: 450px;
+    border-radius: 8px;
 `;
 const PhotoCardExplanation = styled.p`
     text-align: left;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios'
+import axios from 'axios';
+import styled from 'styled-components';
 import "./App.css";
 import PhotoCard from "./components/PhotoCard";
-import Loader from './components/Loader'
+import Loader from './components/Loader';
 import dummyData from './components/dummyData';
 import { reqURL } from './constants';
 const live = false;
@@ -25,10 +26,16 @@ function App() {
         setTimeout(()=>setLoaded(true), 2000)
       }
   }, [])
+
+  const Header = styled.h1`
+    font-size: 2em;
+    font-weight: 700;
+    padding: 1em;
+  `;
+
   return (
     <div className="App">
-      <h1>NASA Astronomy Photo of the Day</h1>
-      <p>map over returned data returning PhotoCard components</p>
+      <Header>NASA Astronomy Photo of The Day</Header>
       {loaded ?
         photos.map((photo, index) => {
           return <PhotoCard
